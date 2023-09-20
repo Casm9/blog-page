@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
+use Encore\Admin\Facades\Admin;
 
 Admin::routes();
 
@@ -12,5 +14,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
+    $router->resource('articles', ArticleController::class);
+    $router->resource('article-types', ArticleTypeController::class);
 
 });
